@@ -40,6 +40,7 @@ const products = [
         {<Counter></Counter>}
 
         {<Users></Users>}
+
         
         {/* <Product product= {products[0]}></Product>
         <Product product= {products[1]}></Product> */}
@@ -57,6 +58,11 @@ const products = [
         <Person name= {nayok[0]} title= "Perfect Choice"></Person>
         <Person name= "Mushfiq" title= "Great choice"></Person>
         <Person name= "Taskin" title= "Employee of the month"></Person>
+
+        {<Writer name= 'Humayun'></Writer>}
+        {<Writer name= 'Sadman'></Writer>}
+        {<Writer name= 'Nozrul'></Writer>}
+        {<Writer></Writer>}
 
 
         <a
@@ -85,10 +91,17 @@ function Counter(){
   return(
     <div>
       <h1>Count: {count}</h1>
+      <MovieCounter movies={count}></MovieCounter>
+      <MovieCounter movies={count + 10}></MovieCounter>
       <button onClick={handleIncrease}>Increase</button>
       <button onClick={handleDecrease}>Decrease</button>
+      
     </div>
   )
+}
+
+function MovieCounter(props){
+  return <h3>Movies I watched: {props.movies}</h3>
 }
 // ***************************
 
@@ -113,6 +126,7 @@ function Users(){
   )
 }
 // ***********************************
+
 
 function Person(props){
   return (
@@ -141,6 +155,21 @@ function Product(props){
       <h4>{props.product.price}</h4>
       <p style={{fontSize: "10px"}}>The complete PDF solution for working anywhere (includes desktop, web, and mobile access).</p>
       <button style={{marginLeft: "5px"}}>Buy now</button>
+    </div>
+  )
+}
+
+function Writer(props){
+  const styleWriter = {
+    border: '5px solid purple',
+    margin: '5px',
+    padding: '5px',
+    borderRadius: '10px'
+  }
+  return(
+    <div style={styleWriter}>
+      <h2>He is a writer - {props.name}</h2>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
     </div>
   )
 }
